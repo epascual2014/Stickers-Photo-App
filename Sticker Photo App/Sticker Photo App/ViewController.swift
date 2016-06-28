@@ -10,14 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    enum stickerName: String {
-        case eyeglasses = "1"
-        case mustache = "2"
-        case hat = "3"
+    enum StickerName: String {
+        case Eyeglasses = "1"
+        case Mustache = "2"
+        case Hat = "3"
+        case Done = "DONE"
         
     }
     
+    var imagePickerController: UIImagePickerController!
+    
     @IBAction func getImageTapped(sender: AnyObject) {
+        
+        imagePickerController = UIImagePickerController()
+        
         
     }
     
@@ -25,15 +31,17 @@ class ViewController: UIViewController {
     
     @IBAction func stickerTapped(sender: UIBarButtonItem) {
 
-        switch sender.title {
-        case stickerName.eyeglasses.rawValue?:
+        let toolBarButtons = StickerName(rawValue: sender.title!)!
+        
+        switch toolBarButtons {
+        case .Eyeglasses:
             eyeglasses()
-        case stickerName.mustache.rawValue?:
+        case .Mustache:
             mustache()
-        case stickerName.hat.rawValue?:
+        case .Hat:
             hat()
-        default
-            break
+        case .Done:
+            done()
         }
     }
 
@@ -51,10 +59,17 @@ class ViewController: UIViewController {
         print(#function)
         
     }
+    
+    func done(){
+        print(#function)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +77,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
 
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        <#code#>
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
