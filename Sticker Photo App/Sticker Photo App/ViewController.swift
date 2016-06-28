@@ -52,18 +52,32 @@ class ViewController: UIViewController {
         }
     }
 
-    func eyeglasses(){
+    func eyeglasses() {
         print(#function)
+        let eyeglassSticker = stickerImageView(image: UIImage(named: "eyeglasses1"))
+        // TODO: fix image position
+        //let eyeGlassImageSize = imageView.image?.size
         
+        eyeglassSticker.frame.origin = CGPoint(x: 50, y: 200)
+        
+        self.view.addSubview(eyeglassSticker)
+            
     }
+    
     
     func mustache(){
         print(#function)
+        let mustacheSticker = stickerImageView(image: UIImage(named: "mustache3"))
+        mustacheSticker.frame.origin = CGPoint(x: 50, y: 50)
+        self.view.addSubview(mustacheSticker)
         
     }
     
     func hat(){
         print(#function)
+        let hatSticker = stickerImageView(image: UIImage(named: "hat1"))
+        hatSticker.frame.origin = CGPoint(x: 50, y: 50)
+        self.view.addSubview(hatSticker)
         
     }
     
@@ -83,6 +97,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 }
 
