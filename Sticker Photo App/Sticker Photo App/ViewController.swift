@@ -82,7 +82,7 @@ class ViewController: UIViewController {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        <#code#>
+        
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
