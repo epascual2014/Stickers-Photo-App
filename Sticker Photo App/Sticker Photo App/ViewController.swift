@@ -19,15 +19,22 @@ class ViewController: UIViewController {
     }
     
     var imagePickerController: UIImagePickerController!
+	
+	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var imageCaptureButton: UIButton!
+	@IBOutlet weak var toobar: UIToolbar!
     
     @IBAction func getImageTapped(sender: AnyObject) {
         
         imagePickerController = UIImagePickerController()
-        
+        imagePickerController.delegate = self
+		imagePickerController.sourceType = .PhotoLibrary
+		imagePickerController.allowsEditing = false
+		self.presentViewController(imagePickerController, animated: true, completion: nil)
         
     }
-    
-    //MARK: Toolbar Buttons
+	
+	//MARK: Toolbar Buttons
     
     @IBAction func stickerTapped(sender: UIBarButtonItem) {
 
@@ -80,13 +87,30 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-    }
-    
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+		dismissViewControllerAnimated(true, completion: nil)
+		imageView.image = image
+		toobar.hidden = false
+		imageCaptureButton.hidden = true
+
+	}
+	
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
