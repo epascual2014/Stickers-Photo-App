@@ -78,7 +78,7 @@
                     <connections>
                         <outlet property="imageCaptureButton" destination="CGU-UA-ECs" id="Qf1-9W-Gha"/>
                         <outlet property="imageView" destination="YJM-9i-aGx" id="oub-14-LwG"/>
-                        <outlet property="toobar" destination="hie-jX-eV3" id="BMJ-0G-dHf"/>
+                        <outlet property="toolbar" destination="hie-jX-eV3" id="HFf-2K-fyk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

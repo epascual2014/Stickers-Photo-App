@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var stickersArray = [stickerImageView]()
+    
     enum StickerName: String {
         case Eyeglasses = "1"
         case Mustache = "2"
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var imageCaptureButton: UIButton!
-	@IBOutlet weak var toobar: UIToolbar!
+	@IBOutlet weak var toolbar: UIToolbar!
     
     @IBAction func getImageTapped(sender: AnyObject) {
 		takePhoto()
@@ -32,7 +34,7 @@ class ViewController: UIViewController {
 		photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
 			if let image = image {
 				self.imageView.image = image
-				self.toobar.hidden = false
+				self.toolbar.hidden = false
 				self.imageCaptureButton.hidden = true
 			}
 		}
@@ -59,13 +61,12 @@ class ViewController: UIViewController {
     func eyeglasses() {
         print(#function)
         let eyeglassSticker = stickerImageView(image: UIImage(named: "eyeglasses1"))
-        // TODO: fix image position
-        //let eyeGlassImageSize = imageView.image?.size
-        
         eyeglassSticker.frame.origin = CGPoint(x: 50, y: 200)
-        
         self.view.addSubview(eyeglassSticker)
-            
+        stickersArray.append(eyeglassSticker)
+        
+        let eyeglassArray = toolbar.items?.filter { $0.title == "1" }
+        eyeglassArray?.first?.enabled = false
     }
     
     
@@ -74,6 +75,12 @@ class ViewController: UIViewController {
         let mustacheSticker = stickerImageView(image: UIImage(named: "mustache3"))
         mustacheSticker.frame.origin = CGPoint(x: 50, y: 50)
         self.view.addSubview(mustacheSticker)
+        stickersArray.append(mustacheSticker)
+        toolbar.items![2].enabled = false
+        
+        let eyeglassArray = toolbar.items?.filter { $0.title == "2" }
+        eyeglassArray?.first?.enabled = false
+
         
     }
     
@@ -81,12 +88,24 @@ class ViewController: UIViewController {
         print(#function)
         let hatSticker = stickerImageView(image: UIImage(named: "hat1"))
         hatSticker.frame.origin = CGPoint(x: 50, y: 50)
+        //array.append(nameofarray)
         self.view.addSubview(hatSticker)
+        stickersArray.append(hatSticker)
+        toolbar.items![4].enabled = false
         
+        let eyeglassArray = toolbar.items?.filter { $0.title == "3" }
+        eyeglassArray?.first?.enabled = false
+
     }
     
     func done(){
         print(#function)
+        for sticker in stickersArray {
+            sticker.userInteractionEnabled = false
+            self.toolbar.hidden = true
+            
+        }
+        
         
     }
 
