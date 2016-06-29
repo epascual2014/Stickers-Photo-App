@@ -13,10 +13,10 @@ class ViewController: UIViewController {
     var stickersArray = [stickerImageView]()
     
     enum StickerName: String {
-        case Eyeglasses = "1"
-        case Mustache = "2"
-        case Hat = "3"
-        case Done = "DONE"
+        case Eyeglasses = "Glasses"
+        case Mustache = "Mustache"
+        case Hat = "Hat"
+        case Done = "Done"
         
     }
     
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         self.view.addSubview(eyeglassSticker)
         stickersArray.append(eyeglassSticker)
         
-        let eyeglassArray = toolbar.items?.filter { $0.title == "1" }
+        let eyeglassArray = toolbar.items?.filter { $0.title == "Glasses" }
         eyeglassArray?.first?.enabled = false
     }
     
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         stickersArray.append(mustacheSticker)
         toolbar.items![2].enabled = false
         
-        let eyeglassArray = toolbar.items?.filter { $0.title == "2" }
+        let eyeglassArray = toolbar.items?.filter { $0.title == "Mustache" }
         eyeglassArray?.first?.enabled = false
 
         
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
         stickersArray.append(hatSticker)
         toolbar.items![4].enabled = false
         
-        let eyeglassArray = toolbar.items?.filter { $0.title == "3" }
+        let eyeglassArray = toolbar.items?.filter { $0.title == "Hat" }
         eyeglassArray?.first?.enabled = false
 
     }
