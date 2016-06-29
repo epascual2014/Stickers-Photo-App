@@ -26,13 +26,14 @@ class ViewController: UIViewController {
     
     @IBAction func getImageTapped(sender: AnyObject) {
         
-        imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-		imagePickerController.sourceType = .PhotoLibrary
-		imagePickerController.allowsEditing = false
-		self.presentViewController(imagePickerController, animated: true, completion: nil)
-        
+        _ = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
+            if let image = image {
+                self.imageView.image = image
+            }
+        }
     }
+    
+    
 	
 	//MARK: Toolbar Buttons
     
