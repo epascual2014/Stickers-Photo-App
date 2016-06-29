@@ -21,7 +21,11 @@ class stickerImageView: UIImageView {
 		self.userInteractionEnabled = true
 		
 		let pan = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan(_:)))
+		let pinch = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinch(_:)))
+		let rotate = UIRotationGestureRecognizer(target: self, action: #selector(self.handleRotate(_:)))
 		self.addGestureRecognizer(pan)
+		self.addGestureRecognizer(pinch)
+		self.addGestureRecognizer(rotate)
     }
 	
 //	convenience init(image: UIImage?, withViewController viewController: UIViewController? = nil) {
@@ -50,4 +54,24 @@ class stickerImageView: UIImageView {
 		}
 	}
 	
+	func handlePinch(pinchRecognizer: UIPinchGestureRecognizer!) {
+		if let view = pinchRecognizer.view {
+			view.transform = CGAffineTransformScale(view.transform, pinchRecognizer.scale, pinchRecognizer.scale)
+			pinchRecognizer.scale = 1
+		}
+	}
+	
+	func handleRotate(rotateRecognizer: UIRotationGestureRecognizer) {
+		if let view = rotateRecognizer.view {
+			view.transform = CGAffineTransformRotate(view.transform, rotateRecognizer.rotation)
+			rotateRecognizer.rotation = 0
+		}
+	}
+	
 }
+
+
+
+
+
+
