@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046BCD8E1D24305F0031C0BC /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BCD8D1D24305F0031C0BC /* PhotoTakingHelper.swift */; };
 		614D94AF1D23180000EA516F /* stickerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614D94AE1D23180000EA516F /* stickerImageView.swift */; };
 		619F82FB1D22F0730022E4AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619F82FA1D22F0730022E4AC /* AppDelegate.swift */; };
 		619F82FD1D22F0730022E4AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619F82FC1D22F0730022E4AC /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		046BCD8D1D24305F0031C0BC /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoTakingHelper.swift; path = Helpers/PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		614D94AE1D23180000EA516F /* stickerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stickerImageView.swift; sourceTree = "<group>"; };
 		619F82F71D22F0730022E4AC /* Sticker Photo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sticker Photo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		619F82FA1D22F0730022E4AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046BCD8A1D242E3E0031C0BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				614D94AE1D23180000EA516F /* stickerImageView.swift */,
+				619F82FE1D22F0730022E4AC /* Main.storyboard */,
+				619F83031D22F0730022E4AC /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		046BCD8B1D242F690031C0BC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				619F82FA1D22F0730022E4AC /* AppDelegate.swift */,
+				619F82FC1D22F0730022E4AC /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		046BCD8C1D2430080031C0BC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				046BCD8D1D24305F0031C0BC /* PhotoTakingHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		046BCD8F1D2432660031C0BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		619F82EE1D22F0720022E4AC = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +92,11 @@
 		619F82F91D22F0730022E4AC /* Sticker Photo App */ = {
 			isa = PBXGroup;
 			children = (
-				619F82FA1D22F0730022E4AC /* AppDelegate.swift */,
-				619F82FC1D22F0730022E4AC /* ViewController.swift */,
-				614D94AE1D23180000EA516F /* stickerImageView.swift */,
-				619F82FE1D22F0730022E4AC /* Main.storyboard */,
+				046BCD8C1D2430080031C0BC /* Helpers */,
+				046BCD8F1D2432660031C0BC /* Models */,
+				046BCD8A1D242E3E0031C0BC /* Views */,
+				046BCD8B1D242F690031C0BC /* Controllers */,
 				619F83011D22F0730022E4AC /* Assets.xcassets */,
-				619F83031D22F0730022E4AC /* LaunchScreen.storyboard */,
 				619F83061D22F0730022E4AC /* Info.plist */,
 			);
 			path = "Sticker Photo App";
@@ -140,6 +175,7 @@
 			files = (
 				614D94AF1D23180000EA516F /* stickerImageView.swift in Sources */,
 				619F82FD1D22F0730022E4AC /* ViewController.swift in Sources */,
+				046BCD8E1D24305F0031C0BC /* PhotoTakingHelper.swift in Sources */,
 				619F82FB1D22F0730022E4AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
