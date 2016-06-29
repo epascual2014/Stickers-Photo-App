@@ -18,22 +18,25 @@ class ViewController: UIViewController {
         
     }
     
-    var imagePickerController: UIImagePickerController!
+	var photoTakingHelper: PhotoTakingHelper!
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var imageCaptureButton: UIButton!
 	@IBOutlet weak var toobar: UIToolbar!
     
     @IBAction func getImageTapped(sender: AnyObject) {
-        
-        _ = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
-            if let image = image {
-                self.imageView.image = image
-            }
-        }
+		takePhoto()
     }
     
-    
+	func takePhoto() {
+		photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
+			if let image = image {
+				self.imageView.image = image
+				self.toobar.hidden = false
+				self.imageCaptureButton.hidden = true
+			}
+		}
+	}
 	
 	//MARK: Toolbar Buttons
     
@@ -97,23 +100,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-
-}
-
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-	
-	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-		dismissViewControllerAnimated(true, completion: nil)
-		imageView.image = image
-		toobar.hidden = false
-		imageCaptureButton.hidden = true
-
-	}
-	
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
