@@ -67,11 +67,11 @@ class ViewController: UIViewController {
 		
         switch toolBarButtons {
         case .Eyeglasses:
-            eyeglasses()
+            eyeglasses(sender)
         case .Mustache:
-            mustache()
+            mustache(sender)
         case .Hat:
-            hat()
+            hat(sender)
         case .Done:
             done()
 		case .Activity:
@@ -79,33 +79,35 @@ class ViewController: UIViewController {
         }
     }
 
-    func eyeglasses() {
+	func eyeglasses(sender: UIBarButtonItem) {
         print(#function)
         let eyeglassSticker = stickerImageView(image: UIImage(named: "eyeglasses1"))
         eyeglassSticker.frame.origin = CGPoint(x: 50, y: 200)
         self.view.addSubview(eyeglassSticker)
         stickersArray.append(eyeglassSticker)
-        
-        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Eyeglasses.rawValue }
-        eyeglassArray?.first?.enabled = false
+		
+		// desable button after user
+		if sender.tag == 2 {
+			sender.enabled = false
+		}
     }
     
     
-    func mustache(){
+    func mustache(sender: UIBarButtonItem){
         print(#function)
         let mustacheSticker = stickerImageView(image: UIImage(named: "mustache3"))
         mustacheSticker.frame.origin = CGPoint(x: 50, y: 50)
         self.view.addSubview(mustacheSticker)
         stickersArray.append(mustacheSticker)
         toolbar.items![2].enabled = false
-        
-        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Mustache.rawValue }
-        eyeglassArray?.first?.enabled = false
-
-        
+		
+		// desable mustache button after user
+		if sender.tag == 3 {
+			sender.enabled = false
+		}
     }
     
-    func hat(){
+    func hat(sender: UIBarButtonItem){
         print(#function)
         let hatSticker = stickerImageView(image: UIImage(named: "hat1"))
         hatSticker.frame.origin = CGPoint(x: 50, y: 50)
@@ -113,10 +115,11 @@ class ViewController: UIViewController {
         self.view.addSubview(hatSticker)
         stickersArray.append(hatSticker)
         toolbar.items![4].enabled = false
-        
-        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Hat.rawValue }
-        eyeglassArray?.first?.enabled = false
-
+		
+		// desable hat button after user
+		if sender.tag == 4 {
+			sender.enabled = false
+		}
     }
     
     func done(){
@@ -124,10 +127,7 @@ class ViewController: UIViewController {
         for sticker in stickersArray {
             sticker.userInteractionEnabled = false
             self.toolbar.hidden = true
-            
         }
-        
-        
     }
 
     override func viewDidLoad() {
