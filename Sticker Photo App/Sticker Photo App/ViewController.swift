@@ -11,24 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     var stickersArray = [stickerImageView]()
-    
-//    enum StickerName: String {
-//        case Eyeglasses = "Glasses"
-//        case Mustache = "Mustache"
-//        case Hat = "Hat"
-//        case Done = "Done"
-//		case Activity = "Activity"
-//        
-//    }
+	
 	enum StickerName: Int {
 		case Eyeglasses = 2
 		case Mustache = 3
 		case Hat = 4
 		case Done = 5
 		case Activity = 1
-		
 	}
-
 	
 	var photoTakingHelper: PhotoTakingHelper!
 	
@@ -58,11 +48,7 @@ class ViewController: UIViewController {
 	}
 	
 	//MARK: Toolbar Buttons
-    
     @IBAction func stickerTapped(sender: UIBarButtonItem) {
-		
-		print(sender.tag)
-
         let toolBarButtons = StickerName(rawValue: sender.tag)!
 		
         switch toolBarButtons {
@@ -91,30 +77,20 @@ class ViewController: UIViewController {
 			sender.enabled = false
 		}
     }
-    
-    
+	
     func mustache(sender: UIBarButtonItem){
         print(#function)
         let mustacheSticker = stickerImageView(image: UIImage(named: "mustache3"))
         mustacheSticker.frame.origin = CGPoint(x: 50, y: 50)
         self.view.addSubview(mustacheSticker)
         stickersArray.append(mustacheSticker)
-        toolbar.items![2].enabled = false
-<<<<<<< HEAD
 		
 		// desable mustache button after user
 		if sender.tag == 3 {
 			sender.enabled = false
 		}
-=======
-        
-        let mustacheArray = toolbar.items?.filter { $0.tag == StickerName.Mustache.rawValue }
-        mustacheArray?.first?.enabled = false
-
-        
->>>>>>> origin/master
-    }
-    
+	}
+	
     func hat(sender: UIBarButtonItem){
         print(#function)
         let hatSticker = stickerImageView(image: UIImage(named: "hat1"))
@@ -122,19 +98,11 @@ class ViewController: UIViewController {
         //array.append(nameofarray)
         self.view.addSubview(hatSticker)
         stickersArray.append(hatSticker)
-        toolbar.items![4].enabled = false
-<<<<<<< HEAD
 		
 		// desable hat button after user
 		if sender.tag == 4 {
 			sender.enabled = false
 		}
-=======
-        
-        let hatArray = toolbar.items?.filter { $0.tag == StickerName.Hat.rawValue }
-        hatArray?.first?.enabled = false
-
->>>>>>> origin/master
     }
     
     func done(){
@@ -147,9 +115,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
