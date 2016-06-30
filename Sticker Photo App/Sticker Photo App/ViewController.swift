@@ -100,11 +100,19 @@ class ViewController: UIViewController {
         self.view.addSubview(mustacheSticker)
         stickersArray.append(mustacheSticker)
         toolbar.items![2].enabled = false
+<<<<<<< HEAD
 		
 		// desable mustache button after user
 		if sender.tag == 3 {
 			sender.enabled = false
 		}
+=======
+        
+        let mustacheArray = toolbar.items?.filter { $0.tag == StickerName.Mustache.rawValue }
+        mustacheArray?.first?.enabled = false
+
+        
+>>>>>>> origin/master
     }
     
     func hat(sender: UIBarButtonItem){
@@ -115,11 +123,18 @@ class ViewController: UIViewController {
         self.view.addSubview(hatSticker)
         stickersArray.append(hatSticker)
         toolbar.items![4].enabled = false
+<<<<<<< HEAD
 		
 		// desable hat button after user
 		if sender.tag == 4 {
 			sender.enabled = false
 		}
+=======
+        
+        let hatArray = toolbar.items?.filter { $0.tag == StickerName.Hat.rawValue }
+        hatArray?.first?.enabled = false
+
+>>>>>>> origin/master
     }
     
     func done(){
