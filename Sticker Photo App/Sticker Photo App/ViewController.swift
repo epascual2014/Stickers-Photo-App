@@ -99,8 +99,8 @@ class ViewController: UIViewController {
         stickersArray.append(mustacheSticker)
         toolbar.items![2].enabled = false
         
-        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Mustache.rawValue }
-        eyeglassArray?.first?.enabled = false
+        let mustacheArray = toolbar.items?.filter { $0.tag == StickerName.Mustache.rawValue }
+        mustacheArray?.first?.enabled = false
 
         
     }
@@ -114,8 +114,8 @@ class ViewController: UIViewController {
         stickersArray.append(hatSticker)
         toolbar.items![4].enabled = false
         
-        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Hat.rawValue }
-        eyeglassArray?.first?.enabled = false
+        let hatArray = toolbar.items?.filter { $0.tag == StickerName.Hat.rawValue }
+        hatArray?.first?.enabled = false
 
     }
     
