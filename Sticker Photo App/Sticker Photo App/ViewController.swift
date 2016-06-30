@@ -12,14 +12,24 @@ class ViewController: UIViewController {
     
     var stickersArray = [stickerImageView]()
     
-    enum StickerName: String {
-        case Eyeglasses = "Glasses"
-        case Mustache = "Mustache"
-        case Hat = "Hat"
-        case Done = "Done"
-        
-    }
-    
+//    enum StickerName: String {
+//        case Eyeglasses = "Glasses"
+//        case Mustache = "Mustache"
+//        case Hat = "Hat"
+//        case Done = "Done"
+//		case Activity = "Activity"
+//        
+//    }
+	enum StickerName: Int {
+		case Eyeglasses = 2
+		case Mustache = 3
+		case Hat = 4
+		case Done = 5
+		case Activity = 1
+		
+	}
+
+	
 	var photoTakingHelper: PhotoTakingHelper!
 	
 	@IBOutlet weak var imageView: UIImageView!
@@ -40,12 +50,21 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	func showActivityController(sender: UIBarButtonItem) {
+		let activityItems = [imageView.image!]
+		let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
+		activityController.popoverPresentationController?.barButtonItem = sender
+		presentViewController(activityController, animated: true, completion: nil)
+	}
+	
 	//MARK: Toolbar Buttons
     
     @IBAction func stickerTapped(sender: UIBarButtonItem) {
+		
+		print(sender.tag)
 
-        let toolBarButtons = StickerName(rawValue: sender.title!)!
-        
+        let toolBarButtons = StickerName(rawValue: sender.tag)!
+		
         switch toolBarButtons {
         case .Eyeglasses:
             eyeglasses()
@@ -55,6 +74,8 @@ class ViewController: UIViewController {
             hat()
         case .Done:
             done()
+		case .Activity:
+			showActivityController(sender)
         }
     }
 

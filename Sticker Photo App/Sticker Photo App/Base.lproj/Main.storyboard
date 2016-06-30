@@ -34,26 +34,31 @@
                                     <constraint firstAttribute="height" constant="44" id="H8P-DG-Qxy"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem tag="1" systemItem="action" id="rGx-S3-iBe">
+                                        <connections>
+                                            <action selector="stickerTapped:" destination="BYZ-38-t0r" id="mZU-xW-837"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rfw-ut-v4m"/>
-                                    <barButtonItem title="Glasses" id="Nwx-Hx-Wum">
+                                    <barButtonItem tag="2" image="toolEyeglass" id="Nwx-Hx-Wum" userLabel="Glasses">
                                         <connections>
                                             <action selector="stickerTapped:" destination="BYZ-38-t0r" id="eDw-8d-0BS"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="y0b-1z-gf8"/>
-                                    <barButtonItem title="Mustache" id="kAZ-4k-9i9">
+                                    <barButtonItem tag="3" image="toolMustache" id="kAZ-4k-9i9" userLabel="Mustache">
                                         <connections>
                                             <action selector="stickerTapped:" destination="BYZ-38-t0r" id="0fe-8H-aPI"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Uvz-bH-3h8"/>
-                                    <barButtonItem title="Hat" id="Ry5-ax-9ih">
+                                    <barButtonItem tag="4" image="toolHat" id="Ry5-ax-9ih" userLabel="Hat">
                                         <connections>
                                             <action selector="stickerTapped:" destination="BYZ-38-t0r" id="hZt-Yr-QPN"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="A6m-CW-pO6"/>
-                                    <barButtonItem title="Done" id="fUd-LY-LBh">
+                                    <barButtonItem tag="5" systemItem="done" id="fUd-LY-LBh">
                                         <connections>
                                             <action selector="stickerTapped:" destination="BYZ-38-t0r" id="yIG-W7-bKT"/>
                                         </connections>
@@ -88,5 +93,8 @@
     </scenes>
     <resources>
         <image name="camera" width="40" height="30"/>
+        <image name="toolEyeglass" width="105" height="44"/>
+        <image name="toolHat" width="72" height="44"/>
+        <image name="toolMustache" width="119" height="44"/>
     </resources>
 </document>
