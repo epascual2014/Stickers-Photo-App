@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         self.view.addSubview(eyeglassSticker)
         stickersArray.append(eyeglassSticker)
         
-        let eyeglassArray = toolbar.items?.filter { $0.title == "Glasses" }
+        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Eyeglasses.rawValue }
         eyeglassArray?.first?.enabled = false
     }
     
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
         stickersArray.append(mustacheSticker)
         toolbar.items![2].enabled = false
         
-        let eyeglassArray = toolbar.items?.filter { $0.title == "Mustache" }
+        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Mustache.rawValue }
         eyeglassArray?.first?.enabled = false
 
         
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         stickersArray.append(hatSticker)
         toolbar.items![4].enabled = false
         
-        let eyeglassArray = toolbar.items?.filter { $0.title == "Hat" }
+        let eyeglassArray = toolbar.items?.filter { $0.tag == StickerName.Hat.rawValue }
         eyeglassArray?.first?.enabled = false
 
     }
