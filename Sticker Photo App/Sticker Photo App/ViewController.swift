@@ -41,8 +41,10 @@ class ViewController: UIViewController {
 	}
 	
 	func showActivityController(sender: UIBarButtonItem) {
-		let activityItems = [imageView.image!]
-		let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
+		toolbar.hidden = true
+		imageView.image = photoTakingHelper.takeScreeShot(self.view!)
+		toolbar.hidden = false
+		let activityController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: [])
 		activityController.popoverPresentationController?.barButtonItem = sender
 		presentViewController(activityController, animated: true, completion: nil)
 	}

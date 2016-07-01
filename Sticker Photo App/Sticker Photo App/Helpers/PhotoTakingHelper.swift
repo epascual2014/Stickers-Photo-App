@@ -57,6 +57,14 @@ class PhotoTakingHelper: NSObject {
         }
         viewController.presentViewController(alertController, animated: true, completion: nil)
     }
+
+	func takeScreeShot(screen: UIView) -> UIImage {
+		UIGraphicsBeginImageContext(screen.bounds.size)
+		screen.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+		let screenShot = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return screenShot
+	}
 }
 
 extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
